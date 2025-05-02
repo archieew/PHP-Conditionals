@@ -1,0 +1,324 @@
+**************************************identifySalary.php************************************************
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+<!--
+Name: Custodio, Archie D.
+Section: WD-201
+Date: January 25, 2023
+-->
+
+<style>
+	table {
+		font-family: Arial,sans-serif;
+		border: solid 3px black;
+		background-color: whitesmoke;
+		width:100%;
+		border-collapse: collapse;
+		}
+	td,th {
+		border:2px solid black;
+		padding:8px;
+		}
+	th.title {
+		text-align: center;
+		}
+	td.admin {
+		text-align: center;
+		}
+</style>
+	</head>
+	
+<body>
+	<form method="post">
+		Name :<input type="text" name="name"><br>
+		Section: <input type="text" name="section"><br>
+		Subject: <input type ="text" name="subject"><br>
+		Gender: <input type = "text" name = "gender"><br>
+		Number of Hours Worked: <input type = "text" name = "nohw"><br>
+		Rate per Hours: <input type="text" name= "rph"><br>
+		<input type = "submit" name = "Compute"><br>
+	</form>
+
+<?php
+echo "<hr>";
+?>
+
+<table style="width:50%">
+	<tr>
+		<th class ="title" colspan="2">RESULTS</th>
+	</tr>
+	<tr>
+		<td>Full Name:</td>
+		<td><?php echo $name=($_POST['name']); ?></td>
+	</tr>
+	<tr>
+		<td>Section:</td>
+		<td><?php echo $name=($_POST['section']); ?></td>
+	</tr>
+	<tr>
+		<td>Subject:</td>
+		<td><?php echo $name=($_POST['subject']); ?></td>
+	</tr>
+	<tr>
+		<td>Gender:</td>
+		<td><?php echo $name=($_POST['gender']); ?></td>
+	</tr>
+	<tr>
+		<td>Gross Pay:</td>
+		<td><?php echo $gpay=($_POST['nohw']* $_POST['rph']); ?></td>
+	</tr>
+	<tr>
+		<td>Tax:</td>
+		<td><?php echo $tax = $gpay *.12; ?></td>
+	</tr>
+	<tr>
+		<td>SSS:</td>
+		<td><?php echo $sss = $gpay *.10; ?></td>
+	</tr>
+	<tr>
+		<td>Total Deduction:</td>
+		<td><?php echo $tdec = $sss + $tax; ?></td>
+	</tr>
+	<tr>
+		<td>Net Pay:</td>
+		<td><?php echo $npay = $gpay - $tdec;; ?></td>
+	</tr>
+
+<tr>
+<td class="admin" colspan="2">
+<?php
+
+	if ($gpay >= 50000)
+	{
+		echo "<br>You are an Administrator";
+	}
+
+	else
+	{
+		echo "You are a Professor.";
+	}
+		echo "</pre>"
+?>
+
+</body>
+</html>
+
+**************************************oddEvenNumbers.php************************************************
+<!--
+Name: Custodio, Archie D.
+Section: WD-201
+Date: January 25, 2023
+ -->
+
+<?php
+
+$number = $_POST['num'];
+
+echo "<form action = oddEvenNumbers.php method = POST>
+Enter a number: <input type = text name = num >
+<br>
+<input type = submit value = SEND >
+<input type = reset value = RESET >
+</form>";
+
+if ($number % 2 == 0)
+{
+	echo "The number is even.";
+}
+else
+{
+	echo "The number is odd.";
+}
+?>
+
+**************************************gradeAverage.php************************************************
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+<!--
+Name: Custodio, Archie D.
+Section: WD-201
+Date: January 25, 2023
+-->
+</head>
+<body>
+	<form method="post">
+		Prelims:<input type="text" name="prelims"><br>
+		Midterms: <input type="text" name = "midterms"><br>
+		Finals: <input type="text" name = "finals"><br>
+		<input type = "submit" name = "Compute"><br>
+	</form>
+
+	<?php
+		$prelims = ($_POST['prelims']);
+		$midterms = ($_POST['midterms']);
+		$finals = ($_POST['finals']);
+		$ave = ($prelims+$midterms+$finals)/3;
+
+		if ($ave < 3.0) 
+		{
+			echo "You passed!";
+		} 
+		else 
+		{
+			echo "You fail!";
+		}
+	?>
+</body>
+</html>
+
+**************************************identifyInteger.php************************************************
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!--
+	Name: Custodio, Archie D.
+    Section: WD-201
+    Date: January 25, 2022
+	-->
+
+</head>
+<body>
+	<form method="post">
+		Input a number here:<input type="text" name="num"><br>
+		<input type = "submit" name = "Compute"><br>
+	</form>
+	<?php
+
+		$num = ($_POST['num']);
+
+		if ($number >= 1) 
+		{
+			echo $number," is Positive!";
+		}
+		elseif ($number == 0) 
+		{
+			echo $number," is Zero!";
+		}
+		elseif ($number <= -1) 
+		{
+			echo $number," is Negative!";
+		}
+		else 
+		{
+			echo "error!";
+		}
+	?>
+</body>
+</html>
+
+
+**************************************YrLvl.php************************************************
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+<!--
+Name: Custodio, Archie D.
+Section: WD-201
+Date: January 25, 2023
+-->
+</head>
+<body>
+	<form method="post">
+		Name:<input type="text" name="name"><br>
+		Enter Year:<input type="text" name="year"><br>
+		<input type = "submit" name = "Compute"><br>
+	</form>
+
+	<?php
+		echo "<br>";
+		$name = ($_POST['name']);
+		$year = ($_POST['year']);
+
+		if ($year == 1) 
+		{
+			echo $name," you are Freshman. Welcome to HAU.";
+		}
+		elseif ($year == 2) 
+		{
+			echo $name," you are Sophomore. Welcome to HAU.";
+		}elseif ($year == 3) 
+		{
+			echo $name,"you are Junior. Welcome to HAU.";
+		}
+		elseif ($year == 4) 
+		{
+			echo $name,"You are Senior. Welcome to HAU.";
+		}
+		elseif ($year > 4) 
+		{
+			echo "Out of School Youth";
+		}
+		else 
+		{
+			echo "Error!";
+		}
+	?>
+</body>
+</html>
+
+**************************************switchDice.php************************************************
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+
+<!--
+Name: Custodio, Archie D.
+Section: WD-201
+Date: January 25, 2023
+-->
+
+</head>
+<body>
+
+	<?php
+		$dice = rand(1,6);
+
+		switch ($dice) {
+			case "1":
+				echo "The die number is 1";
+				break;
+			case "2":
+				echo "The die number is 2";
+				break;
+			case "3":
+				echo "The die number is 3";
+				break;
+			case "4":
+				echo "The die number is 4";
+				break;
+			case "5":
+				echo "The die number is 5";
+				break;
+			case "6":
+				echo "The die number is 6";
+				break;
+			default:
+				echo "Error!";
+		}
+	?>
+
+</body>
+</html>
+
+
